@@ -24,7 +24,12 @@ const Number = ({value, setData, icon}: any) => {
       {value === 'x' ? (
         icon
       ) : (
-        <Text style={{fontFamily: 'Quicksand-Bold', fontSize: 24}}>
+        <Text
+          style={{
+            fontFamily: 'Quicksand-Bold',
+            fontSize: 24,
+            textAlign: 'center',
+          }}>
           {value}
         </Text>
       )}

@@ -66,7 +66,7 @@ const Dashboard = ({navigation}: any) => {
           style={{
             height: 60,
             width: 60,
-            borderRadius: 50,
+            borderRadius: 44,
             backgroundColor: '#EEE',
             display: 'flex',
             justifyContent: 'center',
@@ -84,7 +84,7 @@ const Dashboard = ({navigation}: any) => {
             left: '15%',
             justifyContent: 'center',
           }}>
-          <View style={{flexDirection: 'row', gap: 50}}>
+          <View style={{flexDirection: 'row', gap: 44}}>
             <View>
               <Text
                 style={{
@@ -134,7 +134,7 @@ const Dashboard = ({navigation}: any) => {
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
           alignItems: 'center',
         }}>
         <View>
@@ -151,7 +151,7 @@ const Dashboard = ({navigation}: any) => {
               },
               shadowRadius: 10,
             }}>
-            <Transfer width={50} height={50} />
+            <Transfer width={44} height={44} />
           </Pressable>
           <Text
             style={{
@@ -179,7 +179,7 @@ const Dashboard = ({navigation}: any) => {
               },
               shadowRadius: 10,
             }}>
-            <Payment width={50} height={50} />
+            <Payment width={44} height={44} />
           </Pressable>
           <Text
             style={{
@@ -206,7 +206,7 @@ const Dashboard = ({navigation}: any) => {
               },
               shadowRadius: 10,
             }}>
-            <Payout width={50} height={50} />
+            <Payout width={44} height={44} />
           </Pressable>
           <Text
             style={{
@@ -233,7 +233,7 @@ const Dashboard = ({navigation}: any) => {
               },
               shadowRadius: 10,
             }}>
-            <Topup width={50} height={50} />
+            <Topup width={44} height={44} />
           </Pressable>
           <Text
             style={{

@@ -20,6 +20,7 @@ const Login = ({navigation}: any) => {
   const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [secure, setSecure] = useState<boolean>(true);
 
   const userLogin = async () => {
     try {
@@ -56,10 +57,16 @@ const Login = ({navigation}: any) => {
           />
           <CustomInput
             placeholder="Password"
-            isHidden={true}
+            isHidden={secure}
             setData={setPassword}
             leftIcon={<Password width={36} />}
-            rightIcon={<Hidden width={36} />}
+            rightIcon={
+              <Hidden
+                width={36}
+                color={secure ? 'black' : 'grey'}
+                onPress={() => setSecure(!secure)}
+              />
+            }
           />
         </View>
 
