@@ -20,7 +20,7 @@ const Transaction = ({navigation}: any) => {
   console.log(data);
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <SafeAreaView style={{flex: 1, backgroundColor: 'white', padding: 40}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white', padding: 20}}>
         <Back
           height={50}
           width={50}

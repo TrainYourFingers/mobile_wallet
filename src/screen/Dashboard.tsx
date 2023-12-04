@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Username from '../assets/images/username.svg';
+import Bell from '../assets/images/bell.svg';
 import PurpleBlock from '../assets/images/purpleBack.svg';
 import Transfer from '../assets/images/transfer-outline.svg';
 import Payout from '../assets/images/payout-outline.svg';
@@ -34,7 +35,7 @@ const Dashboard = ({navigation}: any) => {
     }
   }, [currentScheme]);
   return (
-    <SafeAreaView style={{backgroundColor: 'white', flex: 1, padding: 40}}>
+    <SafeAreaView style={{backgroundColor: 'white', flex: 1, padding: 20}}>
       <StatusBar
         barStyle={isDark ? 'light-content' : 'dark-content'}
         backgroundColor={isDark ? 'black' : 'white'}
@@ -64,15 +65,36 @@ const Dashboard = ({navigation}: any) => {
         </View>
         <View
           style={{
-            height: 60,
-            width: 60,
-            borderRadius: 44,
-            backgroundColor: '#EEE',
-            display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
+            gap: 10,
           }}>
-          <Username width={40} height={40} />
+          <Pressable
+            onPress={() => navigation.navigate('Notification')}
+            style={{
+              height: 50,
+              width: 50,
+              borderRadius: 44,
+              backgroundColor: '#EEF',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Bell width={32} height={32} />
+          </Pressable>
+          <View
+            style={{
+              height: 50,
+              width: 50,
+              borderRadius: 44,
+              backgroundColor: '#EEE',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Username width={32} height={32} />
+          </View>
         </View>
       </View>
       <View style={{marginVertical: 40}}>
