@@ -14,7 +14,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import Username from '../assets/images/username.svg';
 import Bell from '../assets/images/bell.svg';
-import PurpleBlock from '../assets/images/purpleBack.svg';
+import PurpleBlock from '../assets/images/purpleBlock.svg';
 import Transfer from '../assets/images/transfer-outline.svg';
 import Payout from '../assets/images/payout-outline.svg';
 import Payment from '../assets/images/payment-outline.svg';
@@ -102,11 +102,18 @@ const Dashboard = ({navigation}: any) => {
         <View
           style={{
             position: 'absolute',
-            top: '25%',
-            left: '15%',
+            height: '100%',
+            width: '100%',
             justifyContent: 'center',
+            padding: 40,
           }}>
-          <View style={{flexDirection: 'row', gap: 44}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              gap: 44,
+              width: '100%',
+            }}>
             <View>
               <Text
                 style={{
@@ -124,7 +131,7 @@ const Dashboard = ({navigation}: any) => {
                   fontSize: 24,
                   lineHeight: 27,
                 }}>
-                $ 123.4
+                $ 44570.4
               </Text>
             </View>
             <View>
@@ -145,7 +152,7 @@ const Dashboard = ({navigation}: any) => {
                     fontSize: 24,
                     lineHeight: 27,
                   }}>
-                  Prime
+                  Prime Bank
                 </Text>
               </View>
             </View>
