@@ -11,6 +11,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Back from '../assets/images/back.svg';
 import Email from '../assets/images/email.svg';
 import Cross from '../assets/images/delete.svg';
+import Delete from '../assets/images/left-delete.svg';
 import CustomInput from '../components/CustomInput';
 import Number from '../components/Number';
 import CustomButton from '../components/CustomButton';
@@ -39,6 +40,7 @@ const Transaction = ({navigation}: any) => {
             Receiver's Email :
           </Text>
           <CustomInput
+            dismissKeyboard={true}
             placeholder="Email"
             setData={() => console.log('some')}
             isHidden={false}
@@ -53,21 +55,33 @@ const Transaction = ({navigation}: any) => {
               fontFamily: 'Quicksand-Medium',
               fontSize: 16,
             }}>
-            Amount :
+            Amount : <Text style={{color: '#8438FF'}}>NPR</Text>
           </Text>
-          <TextInput
+          <View
             style={{
-              textAlign: 'center',
-              fontFamily: 'Rubik-SemiBold',
-              fontSize: 36,
-              color: '#2F1155',
-              height: 100,
-            }}
-            value={`${data}`}
-            // placeholder="$ 0.00"
-            // value={`$ ${data ? data : 0}`}
-            showSoftInputOnFocus={false}
-          />
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}>
+            <TextInput
+              style={{
+                textAlign: 'left',
+                fontFamily: 'Rubik-SemiBold',
+                paddingLeft: 20,
+                fontSize: 40,
+                color: '#2F1155',
+                height: 100,
+                flex: 1,
+              }}
+              value={`${data}`}
+              showSoftInputOnFocus={false}
+            />
+            <Number
+              setData={setData}
+              value="-"
+              icon={<Delete width={30} height={30} color="gray" />}
+            />
+          </View>
         </View>
         <View
           style={{

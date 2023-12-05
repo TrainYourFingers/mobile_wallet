@@ -7,9 +7,19 @@ const Number = ({value, setData, icon}: any) => {
       onPress={() => {
         if (value === 'x') {
           setData(0);
+        } else if (value === '-') {
+          let stringValue: string;
+          let newData: number;
+          setData((prev: any) => {
+            stringValue = prev.toString();
+            newData = parseInt(stringValue.slice(0, stringValue.length - 1));
+            if (!newData) {
+              return 0;
+            } else return newData;
+          });
         } else {
           setData((prev: any) =>
-            prev === 0 ? value : prev + value?.toString(),
+            prev == '0' ? value : prev + value?.toString(),
           );
         }
       }}
@@ -21,7 +31,7 @@ const Number = ({value, setData, icon}: any) => {
           paddingHorizontal: 30,
         },
       ]}>
-      {value === 'x' ? (
+      {value === 'x' || value === '-' ? (
         icon
       ) : (
         <Text

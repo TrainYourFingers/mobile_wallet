@@ -131,7 +131,7 @@ const Dashboard = ({navigation}: any) => {
                   fontSize: 24,
                   lineHeight: 27,
                 }}>
-                $ 44570.4
+                रु 4455.40
               </Text>
             </View>
             <View>

@@ -44,18 +44,21 @@ const Login = ({navigation}: any) => {
         </View>
         <View>
           <CustomInput
+            dismissKeyboard={false}
             placeholder="Username"
             isHidden={false}
             setData={setUsername}
             leftIcon={<Username width={36} />}
           />
           <CustomInput
+            dismissKeyboard={false}
             placeholder="Email"
             isHidden={false}
             setData={setEmail}
             leftIcon={<Email width={36} />}
           />
           <CustomInput
+            dismissKeyboard={false}
             placeholder="Password"
             isHidden={secure}
             setData={setPassword}

@@ -7,6 +7,7 @@ type Input = {
   setData: Dispatch<SetStateAction<string>>;
   rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
+  dismissKeyboard: boolean;
 };
 
 const CustomInput = ({
@@ -15,6 +16,7 @@ const CustomInput = ({
   setData,
   rightIcon,
   leftIcon,
+  dismissKeyboard,
 }: Input) => {
   return (
     <View style={styles.inputContainer}>
@@ -26,7 +28,7 @@ const CustomInput = ({
           placeholder={placeholder}
           secureTextEntry={isHidden}
           onChangeText={text => setData(text)}
-          onBlur={Keyboard.dismiss}
+          onBlur={dismissKeyboard ? Keyboard.dismiss : undefined}
         />
       </View>
 
