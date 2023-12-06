@@ -5,28 +5,38 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
 import InputContainer from '../components/InputContainer';
 import Username from '../assets/images/username.svg';
 import Hidden from '../assets/images/hidden.svg';
 import Password from '../assets/images/password.svg';
+import {Everything} from '../utils/Provider';
 
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'http://192.168.1.90:3000';
 
 const Login = ({navigation}: any) => {
   const [email, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [secure, setSecure] = useState<boolean>(true);
 
+  const {setToken} = useContext(Everything);
+
   const userLogin = async () => {
     try {
-      console.log('clicked');
-      const response = await fetch('http://localhost:3000/users/');
-
+      // console.log('clicked');
+      const response = await fetch(`${baseURL}/login`, {
+        method: 'POST',
+        body: JSON.stringify({email, password}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const data = await response.json();
-      console.log(data);
+      await AsyncStorage.setItem('token', data.access_token);
+      setToken(data.access_token);
     } catch (error) {
       console.log('From Catch Block', error);
     }

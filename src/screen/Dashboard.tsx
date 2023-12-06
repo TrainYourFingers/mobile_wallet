@@ -11,7 +11,7 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Username from '../assets/images/username.svg';
 import Bell from '../assets/images/bell.svg';
 import PurpleBlock from '../assets/images/purpleBlock.svg';
@@ -19,11 +19,15 @@ import Transfer from '../assets/images/transfer-outline.svg';
 import Payout from '../assets/images/payout-outline.svg';
 import Payment from '../assets/images/payment-outline.svg';
 import Topup from '../assets/images/topup-outline.svg';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Everything} from '../utils/Provider';
 
 const Dashboard = ({navigation}: any) => {
   const currentScheme = useColorScheme();
   const [isDark, setIsDark] = useState<boolean>(false);
   const [iconColor, setIconColor] = useState<boolean>(false);
+
+  const {setToken} = useContext(Everything);
 
   const amount = '4000.00';
 
@@ -83,7 +87,11 @@ const Dashboard = ({navigation}: any) => {
             }}>
             <Bell width={32} height={32} />
           </Pressable>
-          <View
+          <Pressable
+            onPress={() => {
+              AsyncStorage.removeItem('token');
+              setToken('');
+            }}
             style={{
               height: 50,
               width: 50,
@@ -94,7 +102,7 @@ const Dashboard = ({navigation}: any) => {
               alignItems: 'center',
             }}>
             <Username width={32} height={32} />
-          </View>
+          </Pressable>
         </View>
       </View>
       <View style={{marginVertical: 40}}>

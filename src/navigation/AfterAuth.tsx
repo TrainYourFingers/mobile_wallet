@@ -1,7 +1,5 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Login from '../screen/Login';
-import Register from '../screen/Register';
 import Dashboard from '../screen/Dashboard';
 import Notifcation from '../screen/Notifcation';
 import Transaction from '../screen/Transaction';
